@@ -1,0 +1,18 @@
+class Main {
+    public static void main(String[] args){
+     char alphabet = 'b';
+     if (alphabet == 'a'){
+         System.out.println("its a vowel");
+     }else if (alphabet == 'e'){
+         System.out.println("its a vowel");
+     }else if (alphabet == 'i'){
+         System.out.println("its a vowel");
+     }else if (alphabet == 'o'){
+         System.out.println("its a vowel");
+     }else if (alphabet == 'u'){
+         System.out.println("its a vowel");
+     }else {
+         System.out.println("its a consonant");
+     }
+    }
+}
