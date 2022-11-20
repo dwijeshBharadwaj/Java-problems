@@ -1,0 +1,10 @@
+class Main {
+    public static void main(String[] args){
+       int i;
+       int num = 1357;
+       int digits = 0;
+       for(i=num; i>0; i=i/10){
+            digits++; // Here the digit 0 is made 1 when once the loop is executed and it will run untill the conition of i is true.
+        }
+        System.out.println(digits);
+    }
