@@ -1,0 +1,35 @@
+class Main {
+    public static void main(String[] args){
+        int classs = 11;
+        char stream = 'S';
+        switch(classs){
+            case 11:
+                switch (stream){
+                    case 'S':
+                        System.out.println("physics, maths, science");
+                        break;
+                    case 'C':
+                        System.out.println("account, stats, buisness");
+                        break;
+                    default:
+                    System.out.println("its nonsense");
+                    break;
+                }break;
+            case 12:
+                switch (stream){
+                    case 'S':
+                        System.out.println("physics1, maths1, science1");
+                        break;
+                    case 'C':
+                        System.out.println("account1, stats1, buisness1");
+                        break;
+                    default:
+                    System.out.println("its nonsense");
+                    break;
+                }break;
+            default:
+                System.out.println("its nonsense");
+                break;
+        }
+    }
+}
