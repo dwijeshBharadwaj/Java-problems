@@ -1,0 +1,14 @@
+import java.util.*;
+import java.io.*;
+class Main {
+    public static void main(String[] args) throws IOException{
+       InputStreamReader a = new InputStreamReader(System.in);
+       BufferedReader br = new BufferedReader(a);
+
+       String name;
+       name = br.readLine();
+       System.out.println("Name is ="+ name);
+
+    
+    }
+}
