@@ -1,0 +1,11 @@
+class Main{
+    public static void main(String[] args){
+        int N = 13455;
+        int count = 0;
+        for(count=0;N>0;N/=10){
+            count = count+1;
+            
+        }
+        System.out.print(count);
+        }
+    }
