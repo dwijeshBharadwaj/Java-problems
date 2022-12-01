@@ -1,0 +1,180 @@
+import java.util.*;
+class Main{
+
+    public static void main(String args[]){
+        // Scanner sc=new Scanner(System.in);
+
+        // int endRow=sc.nextInt(); //rows
+        // int endCol=sc.nextInt(); //cols
+
+        // int[][] mat=new int[endRow][endCol];
+        
+        // int i=0,j=0;
+
+        // for(i=0;i<endRow;i++){
+        //     for(j=0;j<endCol;j++)
+        //         mat[i][j]=sc.nextInt();
+        // }
+
+        // System.out.println("Matrix is:");
+
+        // for(i=0;i<endRow;i++){
+        //     for(j=0;j<endCol;j++)
+        //         System.out.print(mat[i][j] + " ");
+        //     System.out.println();
+        // }   
+        
+        // Search for a given no. x and print the indices at which it occurs.
+        // int x=12;
+        // boolean isFound=false;
+        // for(i=0;i<endRow;i++){
+        //     for(j=0;j<endCol;j++){
+        //         if(mat[i][j]==x){
+        //             System.out.println(x + " found at (" + i + "," + j + ")");
+        //             isFound=true;
+        //         }
+        //     }
+        // }
+        // if(!isFound)
+        //     System.out.println(x + " not found");
+
+        
+        //diagonal print 
+        // int mat[][] = { { 1, 2, 3, 4 },
+        //                 { 5, 6, 7, 8 },
+        //                 { 9, 10, 11, 12 },
+        //                 { 13, 14, 15, 16 } };
+
+        // int n=mat.length;
+
+        // int count=0;
+        // boolean isGoingUp=true;
+        // int i=0,j=0;
+
+        // while(count<n*n){
+        //     //keep on going up till you hit upper or right wall
+        //     if(isGoingUp){
+        //         while(i>=0 && j<n){
+        //             System.out.print(mat[i][j] + " ");
+        //             i--;
+        //             j++;
+        //             count++;
+        //         }
+        //         //if upper wall hit, turn right
+        //         if(i<0 && j<=n-1)
+        //             i=0;
+        //         // if right wall hit turn down
+        //         if(j==n){
+        //             i=i+2;
+        //             j--;
+        //         }  
+        //     }else{
+        //         //keep on going downwards till we hit bottom or left wall
+        //         while(j>=0 && i<n-1){
+        //             System.out.print(mat[i][j] + " ");
+        //             i++;
+        //             j--;
+        //             count++;
+        //         }
+        //         // if left wall, go down
+        //         if(j<0 && i<=n-1)
+        //             j=0;
+        //             // if hit bottom, go right
+        //         if(i==n){
+        //             j=j+2;
+        //             i--;
+        //         }
+
+        //     }
+        //     isGoingUp=!isGoingUp;
+        // }
+
+        // spiral print
+            int a[][] = { { 1, 2, 3, 4 },
+                        { 5, 6, 7, 8 },
+                        { 9, 10, 11, 12 },
+                        { 13, 14, 15, 16 } };
+        int i, startRow = 0, startCol = 0, endCol=a[0].length, endRow=a.length;
+
+        while (startRow < endRow && startCol < endCol) {
+            //left to right
+            for (i = startCol; i < endCol; ++i) {
+                System.out.print(a[startRow][i] + " ");
+            }
+            startRow++;
+ 
+			for (i = startRow; i < endRow; ++i) {
+                System.out.print(a[i][endCol - 1] + " ");
+            }
+            endCol--;
+ 
+ 
+            if (startRow < endRow) {
+                for (i = endCol - 1; i >= startCol; --i) {
+                    System.out.print(a[endRow - 1][i] + " ");
+                }
+                endRow--;
+            }
+ 
+            if (startCol < endCol) {
+                for (i = endRow - 1; i >= startRow; --i) {
+                    System.out.print(a[i][startCol] + " ");
+                }
+                startCol++;
+            }
+        }
+
+
+        
+        // matrix multiplication
+            // int[][]mat1={   {1, 1},
+            //                 {2, 2},
+            //                 {3, 3},};
+        // int[][] mat2 = { { 1, 1, 1 },
+        //                  { 2, 2, 2 } };
+
+        // int r1=mat1.length, c1=mat1[0].length, r2=mat2.length, c2=mat2[0].length;
+
+        // int prod[][]=new int[r1][c2];
+
+        // for(int i=0;i<r1;i++){
+        //     for(int j=0;j<c2;j++){
+        //         for(int k=0;k<c1;k++)
+        //             prod[i][j]+=mat1[i][k]*mat2[k][j];
+        //     }
+        // }
+
+        // //print the result
+        // for(int i=0;i<r1;i++){
+        //     for(int j=0;j<c2;j++)
+        //         System.out.print(prod[i][j]+ " ");
+        //     System.out.println();
+        // }
+
+
+        // print matrix in L shape 
+        //  int mat[][] = {    { 1, 2, 3, 4 },
+        //                     { 5, 6, 7, 8 },
+        //                     { 9, 10, 11, 12 },
+        //                     { 13, 14, 15, 16 }  };
+
+        
+        // int ncols=mat[0].length;
+        // int nrows=mat.length;
+
+        // for(int col=0;col<ncols;col++){
+
+        //     for(int i=0;i<=nrows-col-1;i++)
+        //         System.out.print(mat[i][col] + " ");
+            
+        //     for(int i=col+1;i<ncols;i++)
+        //         System.out.print(mat[nrows-col-1][i] + " ");
+            
+        //     System.out.println();
+        // }
+
+
+    }
+
+
+}
