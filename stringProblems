@@ -1,0 +1,165 @@
+class Main{
+
+    public void swap(char[] s, int l,int r){
+        char temp=s[l];
+        s[l]=s[r];
+        s[r]=temp;
+    }
+
+    public void checkAnagrams(String s1,String s2){
+        int len1=s1.length();
+        int len2=s2.length();
+
+        if(len1!=len2){
+            System.out.println("Not anagrams");
+        }else{
+            int alphabet[]=new int[26];
+            int i;
+            for(i=0;i<len1;i++){
+                char curr=s1.charAt(i);
+                alphabet[curr-'a']++;
+            }
+            for(i=0;i<len2;i++){
+                char curr=s2.charAt(i);
+                alphabet[curr-'a']--;
+            }
+            for(i=0;i<26;i++){
+                if(alphabet[i]!=0){
+                    System.out.println("Not anagrams");
+                    break;
+                }
+            }
+            if(i==26)
+                System.out.println("anagrams");
+        }
+    }
+    public void checkPalindrome(String s){
+        int len=s.length();
+        int l=0;
+        int r=len-1;
+        while(l<r){
+            if(s.charAt(l)!=s.charAt(r)){
+                System.out.println("Not palindrome");
+                break;
+            }
+            l++;
+            r--;
+        }
+        if(l>=r)
+            System.out.println("palindrome");
+    }
+    public void countFrequency(String s){
+        int len=s.length();
+        int freq[]=new int[256];
+        int i;
+        for(i=0;i<len;i++){
+            freq[s.charAt(i)]++;
+        }
+        for(i=0;i<256;i++){
+            if(freq[i]>0){
+                System.out.println((char)(i) + ":" + freq[i]);
+            }
+        }
+    }
+    public void lastWord(String s){
+        int len=s.length();
+        int i=len-1;
+        while(s.charAt(i)!=' ')
+            i--;
+        System.out.println(s.substring(i+1));
+    }
+    public void findCommonStrings(String[] a ,String[] b){
+        int aLen=a.length;
+        int blen=b.length;
+
+        for(int i=0;i<aLen;i++){
+            for(int j=0;j<blen;j++){
+                if(a[i].equals(b[j])){
+                    System.out.print(a[i] + ", ");
+                }
+            }
+        }
+    }
+    public void removeOccurences(String s,char c){
+        int len=s.length();
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<len;i++){
+            if(s.charAt(i)!=c)
+                sb.append(s.charAt(i));
+        }
+        String sNew=sb.toString();
+        System.out.println(sNew);
+    }
+    public void reverse(char[] arr,int l,int r){
+        Main obj=new Main();
+        while(l<r){
+            obj.swap(arr,l,r);
+            l++;
+            r--;
+        }
+    }
+    public void reverseWords(String s){
+        Main obj=new Main();
+        int len=s.length();
+        char[] arr=s.toCharArray();
+        int i;
+        int start=0, end=-1;
+        for(i=0;i<len;i++){
+            if(arr[i]==' '){
+                obj.reverse(arr,start,i-1);
+                start=i+1;
+            }       
+        }
+        //for last word
+        obj.reverse(arr,start,i-1);
+
+        String sRev=new String(arr);
+        System.out.println(sRev);
+    }
+    public static void main(String args[]){
+        Main obj=new Main();
+        // String s="Newton";
+        // int len=s.length();
+        // //reverse a String
+        // System.out.println(s);
+        // char arr[]=s.toCharArray();
+        // int l=0;
+        // int r=len-1;
+        // while(l<r){
+        //     obj.swap(arr,l,r);
+        //     l++;
+        //     r--;
+        // }
+        // String sNew= new String(arr);
+        // System.out.println(sNew);
+
+        // String s1="silent";
+        // String s2="listen";
+        // obj.checkAnagrams(s1,s2);
+
+        // String s="aabcbaa";
+        // obj.checkPalindrome(s);
+        
+        // String s="newton school";
+        // obj.countFrequency(s);
+        // Similar: code to count unique character in string.
+
+        // String s="This is FSD-B batch";
+        // obj.lastWord(s);
+
+        // String[] a={"apple","fruit","text","world"};
+        // String[] b={"text","sam","try","apple","blue"};
+        // obj.findCommonStrings(a,b);
+
+        // String s="abchassddsde";
+        // obj.removeOccurences(s,'s');
+
+        // String s="Hello world newton";
+        // obj.reverseWords(s);
+
+        // H/W: Given a string find the number of vowel and consonant ?
+
+
+
+    }
+}
