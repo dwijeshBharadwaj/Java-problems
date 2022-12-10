@@ -1,0 +1,91 @@
+class Main{
+    public int factorial(int n){
+        if(n==0)
+            return 1;
+        if(n==1)
+            return 1;
+        return n*factorial(n-1);
+    }
+
+    public int fibonacci(int n){
+        if(n==0)
+            return 0;
+        if(n==1)
+            return 1;
+        return fibonacci(n-1)+fibonacci(n-2);
+    }
+    public int power1(int x, int n){
+        if(n==0)
+            return 1;
+        return x*power1(x,n-1);
+    }
+    public int power2(int x, int n){
+        if(n==0)
+            return 1;
+        if(n%2!=0)
+            return x*power2(x,n/2)*power2(x,n/2);
+        else
+            return power2(x,n/2)*power2(x,n/2);
+
+        // if(n==0)
+        //     return 1;
+        // int prod=power2(x,n/2);
+        // if(n%2!=0)
+        //     return x*prod*prod;
+        // else
+        //     return prod*prod;
+    }
+
+    public int gcd(int a,int b){
+        if (b == 0)
+            return a;
+        return gcd(b, a % b); 
+    }
+
+    public void reverseNum(int n){
+        if(n<10){
+            System.out.print(n);
+            return;
+        }
+        System.out.print(n%10); 
+        reverseNum(n/10);
+    }
+
+    public void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
+    {
+        if (n == 0)
+            return;
+        
+        towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+        System.out.println("Move disk "+ n + " from rod " + from_rod + " to rod " + to_rod );
+        towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+    }
+
+    public static void main(String args[]){
+        Main obj=new Main();
+        
+        // int n=5;
+        // int f=obj.factorial(n);
+        // System.out.println(f);
+
+        // int n=7;
+        // int f=obj.fibonacci(n);
+        // System.out.println(f);
+
+        // int f=obj.power1(3,5);
+        // System.out.println(f);
+
+        // int f=obj.power2(3,5);
+        // System.out.println(f);
+
+        // int f=obj.gcd(7,30);
+        // System.out.println(f);
+
+        // int n=1345;
+        // obj.reverseNum(n);
+        
+        int n=3;
+        obj.towerOfHanoi(n, 'A', 'B', 'C');
+        
+    }
+}
