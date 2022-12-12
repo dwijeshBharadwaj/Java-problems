@@ -1,0 +1,101 @@
+class Main{
+    public static void main(String args[]){
+        Main obj=new Main();
+        // int[] arr={2,5,10,13,19,20,51,82,83,102,132,10000};
+        // int target=20;
+        // int left=0;
+        // int right=arr.length-1;
+        
+        // int indx=obj.bSearch(arr,left,right,target);
+        // System.out.print(indx);
+        
+        // int indx1=obj.bSearchRec(arr,left,right,132);
+        // System.out.print(indx1);
+
+        // Binary search for infinite sorted array
+        // int arr[]={3, 5, 7, 9, 10, 90,100, 130, 140, 160, 170};
+        // int target=140;
+
+        // int x=obj.getRange(arr,target);
+        // int indx=obj.bSearch(arr,x/2,x,target);
+        // System.out.print(indx);
+
+        // Search for range
+        // int arr[]={ 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 };
+        // left indx:
+        // if arr[mid]==target
+        //     if(m==0  || arr[mid-1]!=arr[mid])
+        //         return mid
+        //     else{
+        //         right=mid-1;
+        //     }
+        
+        // right indx:
+        // if(arr[mid]==target){
+        //     if(mid==n-1 || arr[mid+1]!=arr[mid])
+        //         return mid;
+        //     else
+        //         left=mid+1;
+        // }
+
+
+        // arr which is strictly increaing upto certain index.
+        // After that index arr is strictly decreasing
+        // you have to find that peak index?
+        // arr={2,5,11,14,17,3,1,-2}
+    } 
+    
+    
+
+    public int getRange(int[] arr, int target){
+        int l=0, h=1;
+        int val=arr[h];
+
+        while(val<target){
+            l=h;
+
+            if(2*h<arr.length-1)
+                h=2*h;
+            else
+                h=arr.length-1;
+
+            val=arr[h];
+        }
+        return h;
+    }
+
+
+    public int bSearch(int arr[],int left,int right,int target){
+        int res=-1;
+        while(left<=right){
+            int mid=(left+right)/2;
+            if(arr[mid]==target){
+                res=mid;
+                break;
+            }else if(arr[mid]>target){
+                right=mid-1;
+            }else{
+                left=mid+1;
+            }
+        }
+        return res;
+    }
+
+    public int bSearchRec(int[] arr,int left,int right,int target){
+        //base case
+        if(left>right)
+            return -1;
+
+        int mid=(left+right)/2;
+        if(arr[mid]==target)
+            return mid;
+        else if(arr[mid]>target){
+            return bSearchRec(arr,left,mid-1,target);
+        }else{
+            return bSearchRec(arr,mid+1,right,target);
+        }
+    }
+
+
+
+}
