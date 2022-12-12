@@ -23,13 +23,15 @@ class Main{
                 char curr=s2.charAt(i);
                 alphabet[curr-'a']--;
             }
+            boolean isAnagram = true;
             for(i=0;i<26;i++){
                 if(alphabet[i]!=0){
                     System.out.println("Not anagrams");
+                    isAnagram = false;
                     break;
                 }
             }
-            if(i==26)
+            if(isAnagram)
                 System.out.println("anagrams");
         }
     }
